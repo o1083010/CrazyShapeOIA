@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Toast.makeText(baseContext, "作者：楊子青", Toast.LENGTH_LONG).show()
+        Toast.makeText(baseContext, "作者：王琪雯", Toast.LENGTH_LONG).show()
 
         imgNext.setOnLongClickListener(object : View.OnLongClickListener {
             override fun onLongClick(p0: View?): Boolean {
