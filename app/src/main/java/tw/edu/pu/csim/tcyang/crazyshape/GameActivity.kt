@@ -30,6 +30,8 @@ class GameActivity : AppCompatActivity() {
             4 -> txvMsg.text = "請畫出三角型"
         }
 
+        btnBack.isEnabled = false
+
         btnBack.setOnClickListener(object: View.OnClickListener{
             override fun onClick(p0: View?) {
                 finish()
@@ -92,7 +94,15 @@ class GameActivity : AppCompatActivity() {
             "triangle" -> {Result = "三角形"
                 FlagDraw=4}
         }
-        Result += ": " + String.format("%.1f%%", outputs[0].score * 100.0f)
+        //Result += ": " + String.format("%.1f%%", outputs[0].score * 100.0f)
+        Result = "你畫的是" + Result + ","
+        if (FlagShape==FlagDraw){
+            Result += "恭喜順利過關!"
+            btnBack.isEnabled = true
+        }
+        else{
+            Result += "請再試試看喔！"
+        }
 
 
         // Releases model resources if no longer used.
