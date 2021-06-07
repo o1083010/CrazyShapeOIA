@@ -15,7 +15,7 @@ class HandPaint(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
     init {
         paint.color = Color.WHITE
         paint.style = Paint.Style.STROKE //描邊
-        paint.strokeWidth = 80f  //設置畫筆寬度
+        paint.strokeWidth = 60f  //設置畫筆寬度
         paint.strokeCap = Paint.Cap.ROUND //線帽(線條開始區域，筆觸端點)平滑
         paint.strokeJoin = Paint.Join.ROUND //連接處圓弧
     }

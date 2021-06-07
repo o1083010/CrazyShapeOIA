@@ -26,6 +26,12 @@
         android:layout_height="wrap_content"
         android:text="清除畫布"  />
 
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="儲存"  />
+
     <tw.edu.pu.csim.tcyang.crazyshape.HandPaint
         android:id="@+id/handv"
         android:layout_width="match_parent"

@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "265688420190",
+    "project_id": "athena0531-fb584",
+    "storage_bucket": "athena0531-fb584.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265688420190:android:ab96655ba418865011c9cf",
+        "android_client_info": {
+          "package_name": "tw.edu.pu.csim.tcyang.crazyshape"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265688420190-o0naaa58fuhd9reslokep803gpmmn5p3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc3XWl5JAs77EV5sH85oa16ZDTa117Uzs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265688420190-o0naaa58fuhd9reslokep803gpmmn5p3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265688420190:android:8c72d2f8b7d5a40d11c9cf",
+        "android_client_info": {
+          "package_name": "tw.edu.pu.o10830100.bitmaptostorage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265688420190-o0naaa58fuhd9reslokep803gpmmn5p3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBc3XWl5JAs77EV5sH85oa16ZDTa117Uzs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265688420190-o0naaa58fuhd9reslokep803gpmmn5p3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

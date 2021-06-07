@@ -3,15 +3,23 @@ package tw.edu.pu.csim.tcyang.crazyshape
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
+import com.bumptech.glide.annotation.GlideModule
+import com.bumptech.glide.module.AppGlideModule
+import com.bumptech.glide.request.target.CustomTarget
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_game.*
 import kotlinx.android.synthetic.main.activity_main.*
 import org.tensorflow.lite.support.image.TensorImage
 import tw.edu.pu.csim.tcyang.crazyshape.ml.Shapes
+import java.io.ByteArrayOutputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 class GameActivity : AppCompatActivity() {
 
@@ -45,6 +53,12 @@ class GameActivity : AppCompatActivity() {
             }
         })
 
+        /*btnSave.setOnClickListener(object:View.OnClickListener{
+            override fun onClick(p0: View?) {
+                SaveToStorage(bitmap)
+            }
+        })*/
+
         handv.setOnTouchListener(object:View.OnTouchListener{
             override fun onTouch(p0: View?, event: MotionEvent): Boolean {
                 var xPos = event.getX()
@@ -59,6 +73,7 @@ class GameActivity : AppCompatActivity() {
                         val c = Canvas(b)
                         handv.draw(c)
                         classifyDrawing(b)
+                        SaveToStorage(b)
                     }
                 }
                 handv.invalidate()
@@ -67,7 +82,31 @@ class GameActivity : AppCompatActivity() {
         })
     }
 
+    fun SaveToStorage(bmp:Bitmap){
+        //將圖片換成byteArray
+        val baos = ByteArrayOutputStream()
+        bmp.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        val pictData = baos.toByteArray()
 
+        //val filename = "images/pict.jpg"  //設定子節點與檔名
+
+        //根據系統時間設定檔名
+        val sdf = SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS")  //定義時間格式
+        val dt = Date()  //取得現在時間
+        val dts = sdf.format(dt) //將目前日期轉為字串
+        val filename = "images/" + dts + ".jpg"  //設定子節點與檔名
+
+        val reference = FirebaseStorage.getInstance().getReference().child(filename)
+        //上傳到Firebase
+        reference.putBytes(pictData)
+                .addOnSuccessListener {
+                    Toast.makeText(baseContext, "上傳成功", Toast.LENGTH_SHORT).show()
+                }
+
+                .addOnFailureListener {
+                    Toast.makeText(baseContext, "上傳失敗", Toast.LENGTH_SHORT).show()
+                }
+    }
     fun classifyDrawing(bitmap : Bitmap) {
         val model = Shapes.newInstance(this)
 
@@ -109,5 +148,4 @@ class GameActivity : AppCompatActivity() {
         model.close()
         Toast.makeText(this, Result, Toast.LENGTH_SHORT).show()
     }
-
 }
